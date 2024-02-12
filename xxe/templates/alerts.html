@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block alerts %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 mt-3">
+       {% if hasError %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for msg in messages %}
+            {{ msg }}
+            <button type="button" class="btn-close text-center" data-bs-dismiss="alert" aria-label="Close"></button>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

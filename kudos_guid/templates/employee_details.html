@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Open User Identity - Result</title>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Set the body height to the viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 50%; /* Adjust the width as needed */
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Database</h1>
+
+        <!-- User Details Section -->
+        <h2>User:</h2>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+
+        <!-- Flag Section -->
+        <h2>Extra Details: </h2>
+        <p><span id="details"></span></p>
+    </div>
+
+    <script>
+        // Retrieve user details from local storage
+        const name = localStorage.getItem("name");
+        const guid = localStorage.getItem("guid");
+        // Check if the values exist in local storage
+        if (name) {
+            // Display the retrieved user details
+            document.getElementById("name").textContent = name;
+
+
+             // Make an AJAX call to fetch the flag
+        fetch("/api/employee/details/" + guid, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                    document.getElementById("details").textContent = data.details;
+            })
+            .catch((error) => {
+                console.error("Error fetching flag:", error);
+                // Handle the error as needed
+            });
+        } else {
+            // Handle the case where the data is not in local storage
+            alert("User details not found in local storage.");
+        }
+
+    </script>
+</body>
+</html>

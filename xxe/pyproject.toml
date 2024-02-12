@@ -1,0 +1,18 @@
+[project]
+name = "vulnerable-careers-page"
+version = "1.0.0"
+description = "A basic server vulnerable to XXE"
+dependencies = [
+    "Flask",
+    "Jinja2",
+]
+
+[tool.ruff]
+exclude = [
+    '.git',
+    '__pycache__',
+    'venv',
+    'venv3',
+]
+ignore = []
+line-length = 120

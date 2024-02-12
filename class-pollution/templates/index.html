@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head><title>Comments page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 2px solid #2f2f2f;
+            background-color: transparent;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h5 {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Thank you for leaving your comment </h1>
+    <form name="myForm" id="myForm" method="post" action="/">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        
+        <label for="login">Login:</label>
+        <input type="text" name="login" id="login">
+        
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        
+        <label for="comment">Comment:</label>
+        <input type="text" name="comment" id="comment">
+        
+        <input value="Submit" type="submit">
+    </form>
+    <br><br>
+    <h5>This is not entirely functional; please bear with us for a few weeks.</h5>
+</body>
+</html>

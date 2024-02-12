@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid text-center">
+    <div class="row justify-content-between">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mt-5">Home</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-md-8 offset-md-2">
+            <a class="btn btn-outline-secondary" href="#">Login</a>
+            <a class="btn btn-outline-secondary" href="#">Register</a>
+            <div>
+            </div>
+        </div>
+        <!-- Offer page -->
+        <div class="container-fluid text-center">
+            <div class="d-none d-lg-block job-sidebar-details">
+                <p class="mt-5 h3">Underwater Welder</p>
+            </div>
+            <div class="row mt-5">
+            {% if submission %}
+                <div class="row">
+                    <h1> Could not forward message to backend server at localhost:$PORT </h1>
+                    <div class="col-md-4 offset-md-4">
+                        Thank you for your submission! Here are your relevant experiences from your application:
+                    <div>
+                    <div class="col-md-8 offset-md-4">
+                        {% for msg in submission %}
+                        <p>{{ msg }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="https://preview.redd.it/one-of-the-most-dangerous-jobs-underwater-welding-v0-a3552iu589c91.jpg?width=640&crop=smart&auto=webp&s=b127e77f09aab36c4d7e913735195ddb49a97cb9" alt="underwater welder" class="col-md-12 rounded float-left" />
+                    </div>
+                    <div class="col-md-8 text-start">
+                        <p>Palomino is a top-of-the-edge Portuguese IT company, focused on software engineering solutions for whoever pays.&nbsp;&nbsp;</p>
+                        <p> To fulfill our expansion strategy, we are looking for a underwater capable welder </p>
+                        <h5>The Role ... </h5>
+                        <p> The Underwater Welder will take regular excursions to deep sea. It's highly likely to find Meg under there, so you should have a physique close to Jason's Statham so you can swim faster than any shark.
+                        It is crucial the candidate is able to <strong>breathe</strong> underwater, all the while keeping its cool.
+                        In addition to your impressive swimming skills, you should be capable of performing welding tasks with your eyes closed, because the seas we work at are incredibly dirty. You should have all the HR screening certifications, ideally some AWS, GCP, and Azure ones too, as we are not sure if we are migrating to the cloud, eventually.
+                        You will probably be required to take some expressos for the people in the office when you are not on the sea.
+                        The ideal candidate: 
+                        <ol>
+                            <li>Demonstrate <strong>strong welding skills in a blind test</strong></li>
+                            <li>Have at least 20 years of proven work experience</li>
+                            <li>Have less than 30 years old, so you have less chances of health issues underwater.</li>
+                        </ol>
+                        <h5>We offer ...</h5>
+                        <ol class="text-justify">
+                            <li>Young, dynamic team.</li>
+                            <li>Free diving lessons.</li>
+                        </ol>
+                        <p> So… It’s not a job. It’s a way of being and it all starts here. Are you our missing piece? </p>
+                        <p> Fill in the form below to apply!</p>
+                        <p><strong>Make sure you highlight your &lt;experiences&gt;!</strong></p>
+                        <form class="row needs-validation" validate method="post" action="/submit" enctype="multipart/form-data">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="validationCustom01" class="form-label">First name</label>
+                                        <input type="text" class="form-control" name="first-name" id="first-name" value="" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="validationCustom02" class="form-label">Last name</label>
+                                        <input type="text" class="form-control" name="last-name" id="last-name" value="" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="validationCustom02" class="form-label">Upload your CV</label>
+                                        <input type="file" name="file" class="form-control" aria-label="file example" required accept=".xml">
+                                        <div class="invalid-feedback">Unsupported file type - Only .xml is supported</div>
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
